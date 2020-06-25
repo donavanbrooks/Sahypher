@@ -8,12 +8,7 @@ import sys
 import argparse
 import os
 
-"""
-------- Saved as Environment variables ----------
-CLIENT_ID = "7a51d1a4af3540bfa276a240b476b07c"
-CLIENT_SECRET = "59480cae4b2a4693aa9485195cf090c0"
--------------------------------------------------
-"""
+
 class SpotifyClient():
 
     def __init__(self):
