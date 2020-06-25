@@ -77,7 +77,7 @@ def convert_segments(tempo, section_dict, segments):
 
 def create_midi_file(json_file):
     # Read JSON analysis file
-    analysis = read_analysis_json(json_file)
+    analysis = read_analysis_json("./TestSongAnalysis/"+json_file)
 
     track = analysis['track']
     # Get Time Signature of track
@@ -96,7 +96,7 @@ def create_midi_file(json_file):
     segments = analysis['segments']
     convert_segments(tempo=track_tempo, section_dict=section_dict, segments=segments)
 
-    filename = "{}.mid".format(json_file[:-5])
+    filename = "./MidiFiles/" + "{}.mid".format(json_file[:-5])
     with open(filename, "wb") as output_file:
         MyMIDI.writeFile(output_file)
 
@@ -121,7 +121,7 @@ if __name__ == '__main__':
     # pick a midi music file you have ...
     # (if not in working folder use full path)
     create_midi_file('2VjXGuPVVxyhMgER3Uz2Fe.json')
-    midi_file = './2VjXGuPVVxyhMgER3Uz2Fe.mid'
+    midi_file = './MidiFiles/2VjXGuPVVxyhMgER3Uz2Fe.mid'
 
     freq = 44100    # audio CD quality
     bitsize = -16   # unsigned 16 bit
